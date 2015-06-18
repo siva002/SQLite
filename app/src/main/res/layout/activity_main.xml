@@ -32,11 +32,36 @@
 
     </LinearLayout>
     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:id="@+id/edit_number"
+        android:layout_below="@+id/edit">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Number : "
+            android:id="@+id/label_number" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/value_number"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/edit"
+        android:layout_below="@+id/edit_number"
         android:id="@+id/submit">
         <Button
             android:layout_width="wrap_content"

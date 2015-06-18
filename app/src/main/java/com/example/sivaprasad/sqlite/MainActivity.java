@@ -19,6 +19,7 @@ public class MainActivity extends ActionBarActivity {
     private SQLiteManager sqLiteManager;
     private SQLiteDatabase db;
     private TextView contacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -62,14 +63,17 @@ public class MainActivity extends ActionBarActivity {
     public void onClickSubmit(View view) {
 
         TextView name = (TextView) findViewById(R.id.value_name);
-
+        TextView phone = (TextView) findViewById(R.id.value_number);
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", "1016");
+        contentValues.put("phone", phone.getText().toString());
         contentValues.put("customer_name",name.getText().toString());
 
         db = sqLiteManager.getWritableDatabase();
 
         long rowId = db.insert("customers",null,contentValues);
+
+        name.setText("");
+        phone.setText("");
 
         updateView();
 
@@ -111,9 +115,10 @@ public class MainActivity extends ActionBarActivity {
              */
 
             while (!cursor.isAfterLast()){
-                String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
+                // String phone1 = cursor.getString(cursor.getColumnIndexOrThrow("phone"));
                 String customer_name = cursor.getString(cursor.getColumnIndexOrThrow("customer_name"));
-                contacts.append(customer_name+System.getProperty("line.separator"));
+                String phone = cursor.getString(cursor.getColumnIndexOrThrow("phone"));
+                contacts.append(customer_name+"--"+phone+System.getProperty("line.separator"));
                 // Move to the next row
                 cursor.moveToNext();
             }

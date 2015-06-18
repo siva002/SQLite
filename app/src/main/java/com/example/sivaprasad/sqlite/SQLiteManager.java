@@ -12,7 +12,7 @@ import android.util.Log;
 public class SQLiteManager  extends SQLiteOpenHelper{
     public static final String DB_NAME = "questions.db";
     public static final int VERSION = 1;
-    public static final String DB_CREATE = "CREATE TABLE customers (id INTEGER NOT NULL, " +
+    public static final String DB_CREATE = "CREATE TABLE customers (phone TEXT, " +
             "customer_name TEXT);";
 
     /* The database creation does NOT happen here. It just gets a handle
